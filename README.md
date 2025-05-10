@@ -4,23 +4,20 @@ A modern and fully functional food ordering Android application built using **Ko
 
 ---
 
-## 📸 Preview
+## 📸 Preview 
 
-<!-- Add screenshots of your app here -->
-<p align="center">
-  <img src="/media/demo_image.jpeg" width="250" alt="Screenshot 1"/>
-</p>
-
----
-
-## 🎥 Demo
-
-<!-- Add demo video/gif here -->
-[![Watch the video](https://img.youtube.com/vi/T-D1KVIuvjA/maxresdefault.jpg)](https://youtu.be/T-D1KVIuvjA)
-
-
-
----
+<table>
+  <tr>
+    <td align="center">
+      <strong>📸 Image</strong><br>
+      <img src="media/demo_image.jpeg" width="250" alt="Screenshot"/>
+    </td>
+    <td align="center">
+      <strong>🎥 Video</strong><br>
+      <img src="media/demo_video.gif" width="250" alt="Demo Video"/>
+    </td>
+  </tr>
+</table>
 
 ## 🚀 Features
 
