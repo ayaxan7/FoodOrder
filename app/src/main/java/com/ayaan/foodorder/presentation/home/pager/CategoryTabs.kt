@@ -37,12 +37,6 @@ fun CategoryTabs(selectedTabIndex: MutableState<Int>) {
             pagerState.scrollToPage(selectedTabIndex.value)
         }
     }
-    // Sync the pager state with the tab state
-//    if (pagerState.currentPage != selectedTabIndex.value) {
-//        coroutineScope.launch {
-//            pagerState.scrollToPage(selectedTabIndex.value)
-//        }
-//    }
 
     Column(modifier = Modifier.fillMaxWidth()) {
         TabRow(

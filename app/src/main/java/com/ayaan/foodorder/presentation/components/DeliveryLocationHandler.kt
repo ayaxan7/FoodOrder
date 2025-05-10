@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
@@ -25,6 +26,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.ayaan.foodorder.R
 import com.ayaan.foodorder.ui.theme.GoodBlue
 
 @Composable
@@ -32,7 +34,8 @@ fun DeliveryLocationHeader() {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp),
+            .padding(horizontal = 16.dp)
+            .padding(bottom=16.dp,top=4.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Icon(
@@ -59,12 +62,12 @@ fun DeliveryLocationHeader() {
 
         Spacer(modifier = Modifier.weight(1f))
 
-       Icon(
-           imageVector = Icons.Default.Person,
-           contentDescription = "Profile",
-           modifier = Modifier
-               .size(36.dp)
-               .clip(CircleShape)
-       )
+        Image(
+            painter = painterResource(R.drawable.profile),
+            contentDescription = "Profile",
+            modifier = Modifier.size(28.dp)
+                .clip(CircleShape),
+            contentScale = ContentScale.Crop
+        )
     }
 }

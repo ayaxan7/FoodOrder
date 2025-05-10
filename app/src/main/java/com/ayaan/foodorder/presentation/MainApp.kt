@@ -10,6 +10,7 @@ import androidx.compose.ui.unit.dp
 import com.ayaan.foodorder.presentation.components.DeliveryLocationHeader
 import com.ayaan.foodorder.presentation.components.navigation.BottomNavigation
 import com.ayaan.foodorder.presentation.components.SearchBar
+//import com.ayaan.foodorder.presentation.components.navigation.CustomBottomNavigation
 import com.ayaan.foodorder.presentation.home.pager.CategoryTabs
 import com.ayaan.foodorder.presentation.home.FoodCategories
 
@@ -20,6 +21,7 @@ fun MainApp() {
 
     Scaffold(
         bottomBar = {
+//            CustomBottomNavigation(selectedNavItem)
             BottomNavigation(selectedNavItem)
         },
         containerColor = Color.White
@@ -35,7 +37,6 @@ fun MainApp() {
             SearchBar()
             Spacer(modifier = Modifier.height(2.dp))
             FoodCategories()
-            Spacer(modifier = Modifier.height(1.dp))
             CategoryTabs(selectedTabIndex)
         }
     }

@@ -5,11 +5,14 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ListAlt
 import androidx.compose.material.icons.automirrored.outlined.ListAlt
 import androidx.compose.material.icons.filled.Fastfood
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -32,16 +35,17 @@ fun BottomNavigation(selectedNavItem: MutableState<Int>) {
     val navItems = listOf(
         NavItem("Home", Icons.Filled.Home),
         NavItem("Food", Icons.Filled.Fastfood),
-        NavItem("Orders", Icons.AutoMirrored.Outlined.ListAlt),
-        NavItem("Settings", Icons.Outlined.Settings)
+        NavItem("Orders", Icons.AutoMirrored.Filled.ListAlt),
+        NavItem("Settings", Icons.Filled.Settings)
     )
 
     NavigationBar(
         containerColor = Color.White,
-        tonalElevation = 5.dp,
+        tonalElevation = 8.dp,
         modifier = Modifier
-            .height(60.dp)
-            .navigationBarsPadding(),
+            .height(62.dp)
+            .padding(bottom = 4.dp)
+            .navigationBarsPadding()
     ) {
         navItems.forEachIndexed { index, item ->
             NavigationBarItem(
@@ -62,7 +66,9 @@ fun BottomNavigation(selectedNavItem: MutableState<Int>) {
                 },
                 label = {
                     Text(
-                        text = item.label, fontSize = 12.sp
+                        text = item.label,
+                        fontSize = 12.sp,
+                        color = if (selectedNavItem.value == index) GoodBlue else Color.Gray
                     )
                 })
         }

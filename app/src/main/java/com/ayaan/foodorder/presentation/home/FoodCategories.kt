@@ -1,4 +1,5 @@
 package com.ayaan.foodorder.presentation.home
+
 import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.background
@@ -10,9 +11,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ayaan.foodorder.R
@@ -22,10 +27,10 @@ import com.ayaan.foodorder.ui.theme.GoodBlue
 @Composable
 fun FoodCategories() {
     val initialCategories = listOf(
-        FoodCategory("Pizza", R.drawable.pizza, true),
-        FoodCategory("Burger", R.drawable.ic_burger, false),
-        FoodCategory("Coffee", R.drawable.ic_coffee, false),
-        FoodCategory("Chicken", R.drawable.butterchicken, false)
+        FoodCategory("Indian", R.drawable.indian_food, true),
+        FoodCategory("Italian", R.drawable.italian_food, false),
+        FoodCategory("Chinese", R.drawable.chinese_food, false),
+        FoodCategory("Drinks", R.drawable.drinks, false)
     )
 
     // Mutable state list to track which category is selected
@@ -37,8 +42,8 @@ fun FoodCategories() {
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 4.dp)
-            .padding(bottom = 16.dp,top=16.dp),
-        horizontalArrangement = Arrangement.spacedBy(4.dp),
+            .padding(bottom = 16.dp, top = 16.dp),
+        horizontalArrangement = Arrangement.spacedBy(2.dp),
         contentPadding = PaddingValues(horizontal = 16.dp)
     ) {
         itemsIndexed(categories) { index, category ->
@@ -73,16 +78,19 @@ fun FoodCategoryItem(
             modifier = Modifier
                 .height(56.dp)
                 .width(100.dp)
-                .clip(RoundedCornerShape(24.dp))
+                .clip(RectangleShape)
                 .background(
-                    if (category.isSelected) GoodBlue else Color.LightGray.copy(alpha = 0.3f)
+                   Color.Transparent
                 ),
             contentAlignment = Alignment.Center
         ) {
             Image(
                 painter = painterResource(id = category.iconResId),
                 contentDescription = category.name,
-                modifier = Modifier.size(24.dp)
+                modifier = Modifier
+                    .fillMaxSize()
+                    .clip(RoundedCornerShape(12.dp)),
+                contentScale = ContentScale.Crop
             )
         }
 
@@ -91,7 +99,18 @@ fun FoodCategoryItem(
         Text(
             text = category.name,
             fontSize = 12.sp,
-            color = Color.Black
+            color = Color.Black,
+
         )
+        if(category.isSelected) {
+            HorizontalDivider(
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .fillMaxWidth()
+                    .padding(top = 2.dp),
+                thickness = 3.dp,
+                color = GoodBlue
+            )
+        }
     }
 }
