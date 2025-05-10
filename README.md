@@ -1,7 +1,6 @@
 # 🍔 FoodOrder - Android Food Delivery App
 
-A modern and fully functional food ordering Android application built using **Kotlin** and **Jetpack Compose**, integrating **Firebase** for backend services. This project demonstrates real-world app architecture and clean UI practices suitable for production-level apps.
-
+A static food ordering Android application UI built using **Kotlin** and **Jetpack Compose**.
 ---
 
 ## 📸 Preview 
